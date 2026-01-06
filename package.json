@@ -1,7 +1,14 @@
 {
   "name": "support-ticket-triage",
   "version": "1.0.0",
+  "description": "AI-powered support ticket triage and routing system",
   "scripts": {
-    "vercel-build": "cd backend && npm install && npm run build && cd ../frontend && npm install && npm run build"
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build": "npm run install:backend && npm run install:frontend && npm run build:backend && npm run build:frontend",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev"
   }
 }

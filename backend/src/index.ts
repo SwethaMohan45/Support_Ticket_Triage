@@ -88,4 +88,5 @@ if (require.main === module) {
 }
 
 export { createApp };
+export default createApp();
 
