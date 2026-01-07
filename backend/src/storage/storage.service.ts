@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { Ticket, ManualOverride } from '../models/ticket.model';
+import { seedTickets } from '../seed-data';
 
 class StorageService {
   private tickets: Map<string, Ticket> = new Map();
@@ -11,6 +12,17 @@ class StorageService {
     this.storageFile = path.join(process.cwd(), storageFile);
     this.autoSave = autoSave;
     this.loadFromDisk();
+    this.loadSeedDataIfEmpty();
+  }
+  
+  private loadSeedDataIfEmpty(): void {
+    if (this.tickets.size === 0) {
+      console.log('Loading seed data...');
+      seedTickets.forEach(ticket => {
+        this.tickets.set(ticket.id, ticket);
+      });
+      console.log(`Loaded ${seedTickets.length} seed tickets`);
+    }
   }
 
   async saveTicket(ticket: Ticket): Promise<Ticket> {
