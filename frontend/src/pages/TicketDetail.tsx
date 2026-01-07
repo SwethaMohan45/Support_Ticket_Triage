@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { api } from '../api';
 import { Ticket, TeamQueue } from '../types';
 
 function TicketDetail() {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
   const [ticket, setTicket] = useState<Ticket | null>(null);
   const [loading, setLoading] = useState(true);
   const [showOverride, setShowOverride] = useState(false);

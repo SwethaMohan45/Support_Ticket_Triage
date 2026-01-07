@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../api';
-import { TicketInput, CustomerType } from '../types';
+import { TicketInput } from '../types';
 
 function CreateTicket() {
   const navigate = useNavigate();
